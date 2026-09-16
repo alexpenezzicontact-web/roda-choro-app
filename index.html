@@ -7,8 +7,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="RODA">
-  <link rel="manifest" href="./manifest.webmanifest?v=5">
+  <link rel="manifest" href="./manifest.webmanifest?v=6">
   <link rel="stylesheet" href="./styles.css?v=5">
+  <link rel="stylesheet" href="./auth.css?v=6">
   <title>RODA — cifras de choro para a roda</title>
 </head>
 <body>
@@ -18,7 +19,10 @@
         <div class="brand">R<span class="brand-o"><i></i></span>DA</div>
         <div class="tag">choro sempre encontra boa companhia</div>
       </div>
-      <button id="addSong" class="circle-btn" aria-label="Adicionar música">＋</button>
+      <div class="home-actions">
+        <button id="profileBtn" class="profile-btn" aria-label="Entrar no RODA">◌</button>
+        <button id="addSong" class="circle-btn" aria-label="Adicionar música">＋</button>
+      </div>
     </header>
 
     <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar choro ou compositor" autocomplete="off"></label>
@@ -125,11 +129,76 @@
     </footer>
   </main>
 
+  <section id="authSheet" class="auth-sheet hidden" aria-label="Conta RODA">
+    <div id="authBackdrop" class="auth-backdrop"></div>
+    <div class="auth-panel">
+      <div class="auth-grab"></div>
+      <div class="auth-head">
+        <div>
+          <span class="kicker">SUA CONTA</span>
+          <h2>RODA</h2>
+        </div>
+        <button id="authClose" class="auth-close" aria-label="Fechar">×</button>
+      </div>
+
+      <div id="authGuest">
+        <p class="auth-intro">Entre para salvar favoritos, listas e suas cifras e acessar tudo em qualquer dispositivo.</p>
+        <div id="authChooser">
+          <div class="auth-buttons">
+            <button id="googleLogin" class="auth-provider google"><span>G</span><span>Continuar com Google</span><span>›</span></button>
+            <button id="appleLogin" class="auth-provider apple"><span>●</span><span>Continuar com Apple</span><span>›</span></button>
+            <button id="emailLogin" class="auth-provider email"><span>✉</span><span>Entrar com e-mail</span><span>›</span></button>
+          </div>
+          <div class="auth-divider">ou</div>
+          <div class="auth-local-note">Você pode continuar usando o RODA sem conta. Seus dados permanecem neste aparelho.</div>
+        </div>
+
+        <div id="emailPanel" class="email-panel hidden">
+          <button id="emailBack" class="email-back">‹ Voltar</button>
+          <h3 id="emailAuthTitle">Entrar com e-mail</h3>
+          <form id="emailForm" class="email-form">
+            <label>E-mail<input id="emailAddress" type="email" autocomplete="email" placeholder="voce@email.com"></label>
+            <label>Senha<input id="emailPassword" type="password" autocomplete="current-password" placeholder="Mínimo 6 caracteres"></label>
+            <button id="emailSubmit" class="email-primary" type="submit">Entrar</button>
+            <div class="email-links">
+              <button id="emailSwitch" type="button">Criar uma conta</button>
+              <button id="forgotPassword" type="button">Esqueci minha senha</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="authUser" class="hidden">
+        <div class="profile-card">
+          <div id="profileAvatar" class="profile-avatar">R</div>
+          <div class="profile-copy">
+            <strong id="profileName">Músico</strong>
+            <span id="profileEmail"></span>
+            <span id="profileProvider" class="profile-provider"></span>
+          </div>
+        </div>
+        <div class="profile-stats">
+          <div class="profile-stat"><strong id="profileFavCount">0</strong><span>Favoritos</span></div>
+          <div class="profile-stat"><strong id="profileListCount">0</strong><span>Roda de hoje</span></div>
+          <div class="profile-stat"><strong id="profileSongCount">0</strong><span>Minhas cifras</span></div>
+        </div>
+        <div class="profile-sync">Sua conta sincroniza favoritos, Roda de hoje, cifras próprias e preferências entre dispositivos.</div>
+        <button id="signOutBtn" class="signout-btn">Sair da conta</button>
+      </div>
+
+      <div id="authStatus" class="auth-status"></div>
+    </div>
+  </section>
+
   <div id="toast" class="toast"></div>
   <script src="./assets/hero.js?v=5"></script>
   <script src="./assets/composers.js?v=5"></script>
+  <script src="./assets/waldir-v2.js?v=6"></script>
   <script src="./assets/collections.js?v=5"></script>
   <script src="./data.js?v=5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./auth-config.js?v=6"></script>
+  <script src="./auth.js?v=6"></script>
   <script src="./app.js?v=5"></script>
 </body>
 </html>
