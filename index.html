@@ -7,9 +7,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="RODA">
-  <link rel="manifest" href="./manifest.webmanifest?v=4">
-  <link rel="stylesheet" href="./styles.css?v=4">
-  <title>RODA — choro sempre encontra boa companhia</title>
+  <link rel="manifest" href="./manifest.webmanifest?v=5">
+  <link rel="stylesheet" href="./styles.css?v=5">
+  <title>RODA — cifras de choro para a roda</title>
 </head>
 <body>
   <main id="home" class="screen home-screen">
@@ -31,37 +31,27 @@
     </nav>
 
     <section id="heroArea" class="hero-card" aria-label="Destaque do RODA">
+      <img id="heroImage" class="hero-image" alt="Ilustração brasileira criada para o RODA">
+      <div class="hero-shade"></div>
       <div class="hero-copy">
         <span class="hero-kicker">RODA · CHORO BRASILEIRO</span>
-        <h1>Choro é encontro.</h1>
-        <p>Entre cordas, amigos e boas histórias, o Brasil sempre toca mais bonito.</p>
-        <button id="heroExplore" class="hero-action">Explorar repertório <span>→</span></button>
+        <h1>Escolha a música e toque na roda.</h1>
+        <p>Abra a cifra, ajuste o tom e acompanhe na hora.</p>
+        <button id="heroExplore" class="hero-action">Ver repertório <span>→</span></button>
       </div>
-      <svg class="hero-art" viewBox="0 0 420 230" role="img" aria-label="Paisagem brasileira ilustrada">
-        <defs>
-          <linearGradient id="sunset" x1="0" x2="1"><stop offset="0" stop-color="#cb6949"/><stop offset="1" stop-color="#e8b04b"/></linearGradient>
-        </defs>
-        <circle cx="330" cy="62" r="38" fill="url(#sunset)" opacity=".95"/>
-        <path d="M0 175 Q58 118 110 155 Q150 88 215 154 Q275 113 332 162 Q372 145 420 170 L420 230 L0 230Z" fill="#0d3b32"/>
-        <path d="M15 188 Q105 174 185 191 Q278 207 410 181" fill="none" stroke="#efc36b" stroke-width="4" stroke-linecap="round" opacity=".85"/>
-        <path d="M12 202 Q98 190 178 205 Q270 220 408 196" fill="none" stroke="#f6e5bd" stroke-width="2" stroke-linecap="round" opacity=".7"/>
-        <path d="M42 20 Q85 62 66 115 M42 20 Q8 56 17 100 M42 20 Q35 66 28 112 M42 20 Q65 68 90 100" fill="none" stroke="#163d33" stroke-width="6" stroke-linecap="round"/>
-        <path d="M300 172 l18 -45 18 45" fill="none" stroke="#f8f1df" stroke-width="2"/><path d="M318 128 v48" stroke="#f8f1df" stroke-width="2"/><path d="M303 160 h31" stroke="#f8f1df" stroke-width="2"/>
-        <g fill="#d9855e"><rect x="347" y="145" width="11" height="31"/><rect x="362" y="132" width="13" height="44"/><rect x="379" y="151" width="9" height="25"/><rect x="392" y="139" width="14" height="37"/></g>
-      </svg>
     </section>
 
     <section id="composerSection" class="composer-section">
-      <div class="row-title"><div><span class="kicker">PESSOAS</span><h2>Grandes compositores</h2></div><button id="seeAllComposers" class="link-btn">Ver todos ›</button></div>
+      <div class="row-title"><div><span class="kicker">COMPOSITORES</span><h2>Grandes compositores</h2></div><button id="seeAllComposers" class="link-btn">Ver todos ›</button></div>
       <div id="composerCards" class="composer-cards"></div>
     </section>
 
     <section id="featureSection" class="feature-section">
       <div class="row-title"><div><span class="kicker">COLEÇÕES</span><h2>Repertórios em destaque</h2></div><button id="seeAllRepertoire" class="link-btn">Ver todos ›</button></div>
       <div class="feature-grid">
-        <button class="feature-card feature-green" data-feature="all"><span class="feature-icon">♫</span><strong>Clássicos<br>do Choro</strong><small>Essenciais da roda</small></button>
-        <button class="feature-card feature-rust" data-feature="setlist"><span class="feature-icon">◯</span><strong>Rodas e<br>Encontros</strong><small>Monte a roda de hoje</small></button>
-        <button class="feature-card feature-blue" data-feature="mine"><span class="feature-icon">✦</span><strong>Regionais e<br>Raridades</strong><small>Suas cifras e versões</small></button>
+        <button class="feature-card" data-feature="all"><img id="featureClassicos" alt=""><span class="feature-overlay"></span><span class="feature-copy"><strong>Clássicos do Choro</strong><small>Essenciais da roda</small></span></button>
+        <button class="feature-card" data-feature="setlist"><img id="featureEncontros" alt=""><span class="feature-overlay"></span><span class="feature-copy"><strong>Rodas e Encontros</strong><small>Monte a roda de hoje</small></span></button>
+        <button class="feature-card" data-feature="mine"><img id="featureRegionais" alt=""><span class="feature-overlay"></span><span class="feature-copy"><strong>Regionais e Raridades</strong><small>Suas cifras e versões</small></span></button>
       </div>
     </section>
 
@@ -81,7 +71,7 @@
       <div id="songList" class="song-list"></div>
     </section>
 
-    <aside class="brand-note"><span class="brand-note-line"></span><p>Mais que cifras, é cultura viva.</p><span class="brand-note-line"></span></aside>
+    <aside class="brand-note"><span class="brand-note-line"></span><p>Escolha. Ajuste. Toque.</p><span class="brand-note-line"></span></aside>
   </main>
 
   <main id="detail" class="screen detail-screen hidden">
@@ -94,7 +84,7 @@
         <p id="detailComposer" class="subtitle"></p>
         <div id="detailTags" class="meta-chips"></div>
       </div>
-      <svg class="instrument-art" viewBox="0 0 120 190" aria-hidden="true"><path d="M66 13c10 13 12 31 7 44l-4 11 5 10c14 18 20 42 12 65-8 24-33 38-54 25-20-12-24-39-9-60l16-22 1-24c0-20 8-39 26-49Z" fill="none" stroke="#ad6b45" stroke-width="3"/><ellipse cx="51" cy="124" rx="20" ry="25" fill="none" stroke="#ad6b45" stroke-width="2"/><circle cx="51" cy="123" r="7" fill="none" stroke="#ad6b45" stroke-width="2"/><path d="M51 15v109M57 15v109M63 15v109" stroke="#ad6b45" stroke-width="1.4"/><path d="M38 153h28" stroke="#ad6b45" stroke-width="3"/></svg>
+      <div class="detail-art-wrap"><img id="detailComposerArt" class="detail-composer-art" alt=""></div>
     </section>
 
     <section class="control-card refined-controls">
@@ -136,6 +126,10 @@
   </main>
 
   <div id="toast" class="toast"></div>
-  <script src="./data.js?v=4"></script><script src="./app.js?v=4"></script>
+  <script src="./assets/hero.js?v=5"></script>
+  <script src="./assets/composers.js?v=5"></script>
+  <script src="./assets/collections.js?v=5"></script>
+  <script src="./data.js?v=5"></script>
+  <script src="./app.js?v=5"></script>
 </body>
 </html>
