@@ -1,0 +1,11 @@
+{
+  "name": "RODA — Cifras de Choro",
+  "short_name": "RODA",
+  "description": "Cifras de choro para tocar agora, com transposição e modo roda.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f0e7",
+  "theme_color": "#183f39",
+  "orientation": "any"
+}
