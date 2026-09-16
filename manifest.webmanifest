@@ -1,11 +1,10 @@
 {
-  "name": "RODA — Choro sempre encontra boa companhia",
-  "short_name": "RODA",
-  "description": "Cifras de choro para estudar e tocar, com transposição, compositores e Modo Roda por partes.",
-  "start_url": "./?v=4",
-  "scope": "./",
-  "display": "standalone",
-  "background_color": "#f4efe5",
-  "theme_color": "#0d3b32",
-  "orientation": "any"
+  "name":"RODA — Cifras de Choro",
+  "short_name":"RODA",
+  "start_url":"./?v=5",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#f3eee3",
+  "theme_color":"#0f3f35",
+  "description":"Cifras de choro para escolher, ajustar o tom e tocar na roda."
 }
